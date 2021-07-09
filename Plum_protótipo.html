@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <!-- Core Firebase JS SDK-->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <!-- Firestore SDK-->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <!-- Existem outras formas de iniciar as SDKs mas essa é a mais simples-->
+</head>
+
+<body>
+    <h1>Produto a ser adicionado:</h1>
+    <label for= "nomedoitem">Item:</label><br>
+    <input type="textfield" id = "nomedoitem" /><br>
+    <label for= "quantidade">Quantidade:</label><br>
+    <input type="number" id = "quantidade"/><br>
+    <label for= "valor">Valor Unid.:</label><br>
+    <input type="number" id = "valor"/><br>
+    <button id="salvar">Salvar</button><br>
+    <h1>Adicionar/Acessar sublista:</h1>
+    <input type="textfield" id="nomeSublista"/>
+    <button id="acessar">Ir</button>
+    <button id="reset">Voltar para a Lista inicial</button><br>
+    <h1>Conteudo da lista:</h1>
+    <p id = "displayLista"></p>
+    <p id = "displayValor"></p>
+    <h1>Sublistas:</h1>
+    <p id = "displaySublistas"></p>
+    <script type = "module" src="./Plum.js"></script>
+</body>
+
+</html>
