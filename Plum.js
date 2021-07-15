@@ -23,6 +23,8 @@ const botaoNovoItem = document.querySelector("#salvar");
 const inputSublista = document.querySelector("#nomeSublista");
 const botaoSublista = document.querySelector("#acessar");
 const botaoReset = document.querySelector("#reset");
+const botaoDeletar = document.querySelector("#confDel");
+const inputDeletar = document.querySelector("#deletar");
 var outputLista = document.querySelector("#displayLista");
 var outputValor = document.querySelector("#displayValor");
 var outputSublistas = document.querySelector("#displaySublistas");
@@ -55,15 +57,15 @@ botaoReset.addEventListener("click", function(){
 });
 
 botaoNovoItem.addEventListener("click", function(){
-    var nomeParaSalvar = inputNome.value; //Determina variáveis com os valores fornecidos pelo usuário
+    var nomeParaSalvar = inputNome.value.toLowerCase(); //Determina variáveis com os valores fornecidos pelo usuário
     var qtdeParaSalvar = inputQtde.value;
     var valorParaSalvar = inputValor.value;
     console.log("Salvando no firestore...");
 
-    var elemento = listaAtual.doc(nomeParaSalvar.toLowerCase());
+    var elemento = listaAtual.doc(nomeParaSalvar);
 
     elemento.set({ //Procura se o item já existe na lista, cria se não existe e atualiza se sim
-        Nome: nomeParaSalvar,
+        Nome: nomeParaSalvar[0].toUpperCase() + nomeParaSalvar.substring(1),
         Qtde: qtdeParaSalvar,
         Valor: valorParaSalvar,
     }, {merge: true}).then(function() {
@@ -89,7 +91,7 @@ botaoSublista.addEventListener("click", function(){
     //Para criar uma sublista, o firestore requer o primeiro documento, por isso colocamos os dados do elemenot a ser adicionado em um documenot da sublista
     //Caso não se queira adicionar um item, "acesso" deve ser usado 
     listaAtual.doc(nomeItem.toLowerCase()).set({
-        Nome: nomeItem,
+        Nome: nomeItem.toLowerCase(),
         Qtde: qtdeItem,
         Valor: valorItem,
     }, {merge: true}).then(function() {
@@ -97,6 +99,14 @@ botaoSublista.addEventListener("click", function(){
     }).catch(function(error){
         console.log("Erro!");
     });
+
+    atualizarLista();
+});
+
+botaoDeletar.addEventListener("click", function(){
+    var itemDel = inputDeletar.value.toLowerCase();
+
+    listaAtual.doc(itemDel).delete();
 
     atualizarLista();
 });
