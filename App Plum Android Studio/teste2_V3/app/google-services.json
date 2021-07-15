@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "28687735536",
+    "project_id": "enduring-aria-317217",
+    "storage_bucket": "enduring-aria-317217.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28687735536:android:3738d6f7fc4766e9dcc035",
+        "android_client_info": {
+          "package_name": "com.example.teste2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28687735536-ki3rl7vck539pnkthg5h6u601ji5mlfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEdO-u4Vta0iOmBfreqr_GRFA5S1gw4co"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28687735536-ki3rl7vck539pnkthg5h6u601ji5mlfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
